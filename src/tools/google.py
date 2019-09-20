@@ -43,7 +43,8 @@ def mapping(result):
     if 'name' in result:
         info["name"]=result['name']
     if 'geometry' in result:
-        info["geometry"]=result['geometry']['location']
+        info["latitude"]=result['geometry']['location']['lat']
+        info["longitude"]=result['geometry']['location']['lng']
     if 'rating' in result:
         info["rating"]=result['rating']
     return info
