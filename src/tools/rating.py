@@ -60,7 +60,7 @@ def rating(db):
         coord_rating+=rate
     df=pd.DataFrame(coord_rating)
     df['total_Rating']=df.apply(totalRate,axis=1)
-    #df.to_csv('Output/rating.csv')
+    df.to_csv('Output/rating.csv')
     df=df[df.total_Rating==max(df.total_Rating)]
     antiDraw=const.getConstant('ANTI_DRAW')
     df['Distance']=np.vectorize(geo.distance,excluded=('lat2','lon2'))(df.latitude,df.longitude,lat2=antiDraw[0],lon2=antiDraw[1])
@@ -69,7 +69,7 @@ def rating(db):
     print("El mejor lugar para colocar la empresa es en "+theplace.city.iloc[0]+".")
     print("En las coordenadas: Latitud: {}, Longitud: {}".format(theplace.latitude.iloc[0],theplace.longitude.iloc[0]))
 
-    return df
+    return theplace
 
 
 

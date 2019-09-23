@@ -3,8 +3,14 @@ import os
 dotenv.load_dotenv()
 key = os.getenv("GOOGLE_KEY")
 
+
+'''paramiters to use in the search
+    - Google place typs
+    - keywords
+    - radius of the search, also used to generet the grid of places to ask for
+'''
 properties={
-    'vegans':
+    'Vegan':
     {'googleType': ["restaurant", "bar", "cafe", "meal_delivery", "meal_takeaway"],
     'Name': "Vegan" ,
     'Radius': 5000},
@@ -19,15 +25,19 @@ properties={
     'Name': "starbucks",
     'Radius': 5000},
     
-    'Party':
+    'night_club':
     {'googleType': ['night_club'],
     'Name': "",
     'Radius': 5000}
 }
 
-
+'''Rating of locations 
+    - Distance from the location
+    - Name of the collection where the info is kepped
+    - rating of the location according to the number of places in the area
+    '''
 rating={
-    'vegans':{
+    'Vegan':{
         'distance' : [1.5],
         'collection': 'facilities',
         'values':{
@@ -66,7 +76,7 @@ rating={
         }
     },
     
-    'Party':{
+    'night_club':{
         'distance' : [1.5],
         'collection': 'facilities',
         'values':{
@@ -94,17 +104,20 @@ rating={
 
 }
 
+'''Ponderation of each aspect'''
 ratio={
-    'vegans':10,
+    'Vegan':10,
     'school':10,
     'starbucks':10,    
-    'Party':10,
+    'night_club':10,
     'airport':10
 }
 
+'''companies categoris related to our field'''
 category=[["web","software","games_video"],["network_hosting","hardware","analytics","music",
           "cleantech","photo_video","design"]]
 
+''' dict os constants'''
 constants={
     "NEAR_URL" : "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
     "GOOGLE_KEY" : key,
@@ -116,7 +129,7 @@ constants={
     "ANTI_DRAW": [40.4165000,-3.7025600]
 }
 
-
+''' Function that return the constants from the dictionary'''
 def getConstant(name):
     try:
         return constants[name]
