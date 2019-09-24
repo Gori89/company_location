@@ -18,7 +18,7 @@ Finalmente se toman los puntos con mejor rating. Para desempatar se ha tomada el
 En la carpeta de Outputs se genera un html que muestra un mapa de la ciudad elegida y la valoración de cada punto en dicha ciudad.
 El punto final se marca en la imagen con un _tick_
 
-Los parámentros de búsqueda en Goolge y de calificación pueden modificarse en el fichero constants.py.
+Los parámetros de búsqueda en Goolge y de calificación pueden modificarse en el fichero constants.py.
 
 
  
